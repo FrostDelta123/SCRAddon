@@ -25,7 +25,7 @@ public class SCRDatabase {
         columnAmount = cfg.getString("db.column.amount");
         columnExtra = cfg.getString("db.column.extra");
         columnServer = cfg.getString("db.column.server");
-        server = cfg.getString("multiserver.server");
+        server = String.valueOf(cfg.getInt("multiserver.server"));
     }
 
     public String getServer() {

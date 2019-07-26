@@ -52,9 +52,11 @@ public class Network {
             int itemAmount = item.getAmount();
             String extra = "";
             String server = database.getServer();
+            String sql = "INSERT INTO " + "`" + database.getTable() + "` (" + database.getColumniD() + ", " + database.getColumnType() + ", " + database.getColumnItem() + ", " + database.getColumnPlayer() + ", " + database.getColumnAmount()
+                    + ", " + database.getColumnExtra() +") VALUES (" + id + ", " + type + ", " + itemData + ", " + player + ", " + itemAmount + ", " + extra +")";
 
-            statement.executeUpdate("INSERT INTO " + "`" + database.getTable() + "` (" + database.getColumniD() + ", " + database.getColumnType() + ", " + database.getColumnItem() + ", " + database.getColumnName() + ", " + database.getColumnPlayer() + ", " + database.getColumnAmount()
-                    + ", " + database.getColumnExtra() + ", " + database.getColumnServer() +") VALUES (" + id + ", " + type + ", " + itemData + ", " + name + ", " + player + ", " + itemAmount + ", " + extra + ", " + server + ")");
+            System.out.println("DEBUG: " + sql);
+            statement.executeUpdate(sql);
         } catch (SQLException e) {
             e.printStackTrace();
         }
