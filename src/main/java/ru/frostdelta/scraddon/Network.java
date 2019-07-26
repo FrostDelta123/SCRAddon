@@ -44,10 +44,10 @@ public class Network {
             Statement statement = connection.createStatement();
             SCRDatabase database = new SCRDatabase(SCRAddon.SCRConfig);
             String[] message = itemID.split(":");
-            ItemStack item = message.length > 1 ? new ItemStack(Material.getMaterial(message[0].toUpperCase()), Integer.parseInt(amount), Short.parseShort(message[1])) : new ItemStack(Material.getMaterial(message[0].toUpperCase()), Integer.parseInt(amount));
+            ItemStack item = message.length > 1 ? new ItemStack(Material.getMaterial(Integer.parseInt(message[0])), Integer.parseInt(amount), Short.parseShort(message[1])) : new ItemStack(Material.getMaterial(Integer.parseInt(message[0])), Integer.parseInt(amount));
             Integer id = id(database);
             String type = "'item'";
-            String itemData = item.getType().name() + ":" + item.getData().getData();
+            String itemData = item.getTypeId() + ":" + item.getData().getData();
             int itemAmount = item.getAmount();
             String sql = "INSERT INTO " + "`" + database.getTable() + "` (" + database.getColumniD() + ", " + database.getColumnType() + ", " + database.getColumnItem() + ", " + database.getColumnPlayer() + ", " + database.getColumnAmount()
                     +") VALUES (" + id + ", " + type + ", '" + itemData + "', '" + player + "', " + itemAmount + ")";
