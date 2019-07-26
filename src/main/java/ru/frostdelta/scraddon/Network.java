@@ -43,7 +43,8 @@ public class Network {
         try {
             Statement statement = connection.createStatement();
             SCRDatabase database = new SCRDatabase(SCRAddon.SCRConfig);
-            ItemStack item = new ItemStack(Material.getMaterial(itemID), Integer.parseInt(amount));
+            String[] message = itemID.split(":");
+            ItemStack item = message.length > 1 ? new ItemStack(Material.getMaterial(message[0].toUpperCase()), Integer.parseInt(amount), Short.parseShort(message[1])) : new ItemStack(Material.getMaterial(message[0].toUpperCase()), Integer.parseInt(amount));
             Integer id = id(database);
             String type = "item";
             String itemData = item.getType().name() + ":" + item.getData().getData();
