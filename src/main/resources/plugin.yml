@@ -1,0 +1,10 @@
+name: SCRAddon
+version: ${project.version}
+main: ru.frostdelta.scraddon.SCRAddon
+authors: [FrostDelta123]
+depend:
+  - ShoppingCartReloaded
+commands:
+  dcart:
+    permission: cartr.admin.put
+    permission-message: У вас нет прав!
