@@ -53,7 +53,7 @@ public class Network {
             String extra = "";
             String server = database.getServer();
             String sql = "INSERT INTO " + "`" + database.getTable() + "` (" + database.getColumniD() + ", " + database.getColumnType() + ", " + database.getColumnItem() + ", " + database.getColumnPlayer() + ", " + database.getColumnAmount()
-                    + ", " + database.getColumnExtra() +") VALUES (" + id + ", " + type + ", " + itemData + ", " + player + ", " + itemAmount + ", " + extra +")";
+                    +") VALUES (" + id + ", " + type + ", " + itemData + ", " + player + ", " + itemAmount + ")";
 
             System.out.println("DEBUG: " + sql);
             statement.executeUpdate(sql);
