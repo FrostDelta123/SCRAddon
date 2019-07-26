@@ -46,14 +46,11 @@ public class Network {
             String[] message = itemID.split(":");
             ItemStack item = message.length > 1 ? new ItemStack(Material.getMaterial(message[0].toUpperCase()), Integer.parseInt(amount), Short.parseShort(message[1])) : new ItemStack(Material.getMaterial(message[0].toUpperCase()), Integer.parseInt(amount));
             Integer id = id(database);
-            String type = "item";
+            String type = "'item'";
             String itemData = item.getType().name() + ":" + item.getData().getData();
-            String name = item.getType().name().toUpperCase().replaceAll("_", " ");
             int itemAmount = item.getAmount();
-            String extra = "";
-            String server = database.getServer();
             String sql = "INSERT INTO " + "`" + database.getTable() + "` (" + database.getColumniD() + ", " + database.getColumnType() + ", " + database.getColumnItem() + ", " + database.getColumnPlayer() + ", " + database.getColumnAmount()
-                    +") VALUES (" + id + ", " + type + ", " + itemData + ", " + player + ", " + itemAmount + ")";
+                    +") VALUES (" + id + ", " + type + ", '" + itemData + "', '" + player + "', " + itemAmount + ")";
 
             System.out.println("DEBUG: " + sql);
             statement.executeUpdate(sql);
