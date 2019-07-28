@@ -39,7 +39,7 @@ public class Network {
         return 0;
     }
 
-    public static void handle(String player, String itemID, String amount) {
+    public static void handle(String player, String itemID, String amount, String name) {
         try {
             Statement statement = connection.createStatement();
             SCRDatabase database = new SCRDatabase(SCRAddon.SCRConfig);
@@ -49,8 +49,9 @@ public class Network {
             String type = "'item'";
             String itemData = item.getTypeId() + ":" + item.getData().getData();
             int itemAmount = item.getAmount();
+            final String extra = null;
             String sql = "INSERT INTO " + "`" + database.getTable() + "` (" + database.getColumniD() + ", " + database.getColumnType() + ", " + database.getColumnItem() + ", " + database.getColumnPlayer() + ", " + database.getColumnAmount()
-                    +") VALUES (" + id + ", " + type + ", '" + itemData + "', '" + player + "', " + itemAmount + ")";
+                    + ", " + database.getColumnName() + ", " + database.getColumnExtra() +") VALUES (" + id + ", " + type + ", '" + itemData + "', '" + player + "', " + itemAmount +  "', " + name + "', " + extra + ")";
 
             System.out.println("DEBUG: " + sql);
             statement.executeUpdate(sql);
