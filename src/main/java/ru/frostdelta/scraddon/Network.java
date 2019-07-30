@@ -51,7 +51,7 @@ public class Network {
             int itemAmount = item.getAmount();
             final String extra = null;
             String sql = "INSERT INTO " + "`" + database.getTable() + "` (" + database.getColumniD() + ", " + database.getColumnType() + ", " + database.getColumnItem() + ", " + database.getColumnPlayer() + ", " + database.getColumnAmount()
-                    + ", " + database.getColumnName() + ", " + database.getColumnExtra() +") VALUES (" + id + ", " + type + ", '" + itemData + "', '" + player + "', " + itemAmount +  "', " + name + "', " + extra + ")";
+                    + ", " + database.getColumnName() + ", " + database.getColumnExtra() +") VALUES (" + id + ", " + type + ", '" + itemData + "', '" + player + "', " + itemAmount +  "', '" + name + "', " + extra + ")";
 
             System.out.println("DEBUG: " + sql);
             statement.executeUpdate(sql);
