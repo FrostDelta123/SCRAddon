@@ -22,7 +22,7 @@ public class Network {
         }
         Class.forName("com.mysql.jdbc.Driver");
         connection = DriverManager.getConnection(url +
-                "?useUnicode=true&characterEncoding=UTF-8", username, password);
+                "?autoReconnect=true&useUnicode=true&characterEncoding=UTF-8", username, password);
     }
 
     public static Integer id(SCRDatabase database) {
